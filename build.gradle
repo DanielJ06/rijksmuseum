@@ -1,0 +1,20 @@
+apply from: 'libs.gradle'
+apply from: 'dependencies.gradle'
+
+buildscript {
+    ext.kotlinVersion = "1.5.20"
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
