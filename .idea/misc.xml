@@ -6,6 +6,8 @@
         <entry key="app/src/main/res/font-v26/kaisei_family.xml" value="0.23055555555555557" />
         <entry key="app/src/main/res/font/kaisei_family.xml" value="0.23055555555555557" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1125" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/fragment_paint_details.xml" value="0.165" />
         <entry key="data/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2361111111111111" />
       </map>
     </option>

@@ -3,7 +3,6 @@ ext {
             [configuration: "implementation", dependency: fileTree(dir: 'libs', include: ['*.jar'])],
             [configuration: "implementation", dependency: "$kotlin"],
             [configuration: "implementation", dependency: "$coroutine"],
-            [configuration: "implementation", dependency: "$koinScope"],
             [configuration: "implementation", dependency: "$androidKtxCore"]
     ]
 
@@ -11,7 +10,8 @@ ext {
             [configuration: "implementation", dependency: "$appCompat"],
             [configuration: "implementation", dependency: "$viewModelRuntime"],
             [configuration: "implementation", dependency: "$navigationUi"],
-            [configuration: "implementation", dependency: "$koinViewModel"],
+            [configuration: "implementation", dependency: "$koinAndroid"],
+            [configuration: "implementation", dependency: "$koinCore"],
             [configuration: "implementation", dependency: "$navigationFragment"],
             [configuration: "implementation", dependency: "$constraintLayout"],
             [configuration: "implementation", dependency: "$material"],
@@ -27,7 +27,8 @@ ext {
     diDependencies = commonsDependencies + [
             [configuration: "implementation", dependency: "$appCompat"],
             [configuration: "implementation", dependency: "$viewModel"],
-            [configuration: "implementation", dependency: "$koinViewModel"],
+            [configuration: "implementation", dependency: "$koinAndroid"],
+            [configuration: "implementation", dependency: "$koinCore"],
             [configuration: "implementation", dependency: "$gson"],
             [configuration: "implementation", dependency: "$retrofit2"],
             [configuration: "implementation", dependency: "$retrofitCoroutine"],
@@ -36,7 +37,8 @@ ext {
     ]
 
     presentationDependencies = commonsDependencies + [
-            [configuration: "implementation", dependency: "$koinViewModel"],
+            [configuration: "implementation", dependency: "$koinAndroid"],
+            [configuration: "implementation", dependency: "$koinCore"],
             [configuration: "implementation", dependency: "$appCompat"],
             [configuration: "implementation", dependency: "$viewModel"],
             [configuration: "implementation", dependency: "$viewModelRuntime"],

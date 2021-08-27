@@ -23,7 +23,7 @@ ext {
     lifecycleVersion              = "2.2.0"
 
     //koin
-    koinVersion                   = "2.0.1"
+    koinVersion                   = "3.1.2"
 
     //retrofit
     retrofitVersion               = "2.9.0"
@@ -60,9 +60,8 @@ ext {
     lifecycle            = "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
 
     //koin
-    koinAndroid          = "org.koin:koin-android:$koinVersion"
-    koinScope            = "org.koin:koin-androidx-scope:$koinVersion"
-    koinViewModel        = "org.koin:koin-androidx-viewmodel:$koinVersion"
+    koinAndroid          = "io.insert-koin:koin-android:$koinVersion"
+    koinCore             = "io.insert-koin:koin-core:$koinVersion"
 
     //retrofit
     retrofit2            = "com.squareup.retrofit2:retrofit:$retrofitVersion"

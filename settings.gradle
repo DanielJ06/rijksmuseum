@@ -3,13 +3,13 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
     }
 }
 rootProject.name = "rijksmuseum"
 include ':app'
-include ':app:data'
-include ':data-remote'
-include ':data-local'
-include ':domain'
+include ':di'
 include ':data'
+include ':domain'
+include ':data_remote'
+include ':presentation'
+include ':base_feature'

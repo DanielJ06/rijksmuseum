@@ -7,7 +7,6 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.rijksmuseum"
         minSdk 21
         targetSdk 31
         versionCode 1
@@ -16,8 +15,31 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions "mode"
+
+    productFlavors {
+        dev {
+            dimension "mode"
+        }
+
+        prd {
+            dimension "mode"
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
     buildTypes {
+        debug {
+            debuggable true
+            signingConfig signingConfigs.debug
+            applicationIdSuffix ".dev"
+        }
+
         release {
+            debuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -33,11 +55,7 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation project(path: ':base_feature')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    appDependencies.each { add(it.configuration, it.dependency) }
 }
