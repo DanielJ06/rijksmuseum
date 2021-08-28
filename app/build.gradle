@@ -6,6 +6,10 @@ plugins {
 android {
     compileSdk 31
 
+    def envProperties = new Properties()
+    envProperties.load(project.rootProject.file("environment.properties").newDataInputStream())
+    ext.environmentProperties = envProperties
+
     defaultConfig {
         minSdk 21
         targetSdk 31

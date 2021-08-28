@@ -20,6 +20,18 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
+    buildTypes {
+        debug {
+            buildConfigField "String", "BASE_URL", envProperties.getProperty('BASE_URL')
+            buildConfigField "String", "API_KEY", envProperties.getProperty('API_KEY')
+        }
+
+        release {
+            buildConfigField "String", "BASE_URL", envProperties.getProperty('BASE_URL')
+            buildConfigField "String", "API_KEY", envProperties.getProperty('API_KEY')
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -30,5 +42,8 @@ android {
 }
 
 dependencies {
+
+    implementation project(':data_remote')
+
     diDependencies.each { add(it.configuration, it.dependency) }
 }
