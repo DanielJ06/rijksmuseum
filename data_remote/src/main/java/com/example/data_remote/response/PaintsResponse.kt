@@ -2,12 +2,12 @@ package com.example.data_remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class WebImage (
+data class WebImageResponse (
     @SerializedName("url")
     val url: String
 )
 
-data class CollectionProps(
+data class PaintPropsResponse(
     @SerializedName("id")
     val id: String,
 
@@ -24,10 +24,10 @@ data class CollectionProps(
     val longTitle: String,
 
     @SerializedName("webImage")
-    val image: WebImage
+    val imageResponse: WebImageResponse
 )
 
-data class CollectionsResponse(
+data class PaintResponse(
     @SerializedName("artObjects")
-    val artObjects: List<CollectionProps>
+    val artObjects: List<PaintPropsResponse>
 )
