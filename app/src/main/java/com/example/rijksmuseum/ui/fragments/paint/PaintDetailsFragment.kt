@@ -1,4 +1,4 @@
-package com.example.rijksmuseum
+package com.example.rijksmuseum.ui.fragments.paint
 
 import android.os.Bundle
 import android.util.DisplayMetrics
