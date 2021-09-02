@@ -2,14 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_graph"
-    app:startDestination="@id/paintDetailsFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.rijksmuseum.HomeFragment"
+        android:name="com.example.rijksmuseum.ui.fragments.home.HomeFragment"
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/paintDetailsFragment"
-        android:name="com.example.rijksmuseum.PaintDetailsFragment"
+        android:name="com.example.rijksmuseum.ui.fragments.paint.PaintDetailsFragment"
         android:label="PaintDetailsFragment" />
 </navigation>
