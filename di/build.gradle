@@ -44,6 +44,9 @@ android {
 dependencies {
 
     implementation project(':data_remote')
+    implementation project(':presentation')
+    implementation project(':data')
+    implementation project(':domain')
 
     diDependencies.each { add(it.configuration, it.dependency) }
 }

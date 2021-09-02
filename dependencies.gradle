@@ -16,7 +16,8 @@ ext {
             [configuration: "implementation", dependency: "$constraintLayout"],
             [configuration: "implementation", dependency: "$material"],
             [configuration: "implementation", dependency: "$lifecycle"],
-            [configuration: "implementation", dependency: "$viewBinding"]
+            [configuration: "implementation", dependency: "$viewBinding"],
+            [configuration: "implementation", dependency: "$paging"]
     ]
 
     intentDependencies = appDependencies + [
@@ -37,17 +38,20 @@ ext {
     ]
 
     presentationDependencies = commonsDependencies + [
-            [configuration: "implementation", dependency: "$koinAndroid"],
-            [configuration: "implementation", dependency: "$koinCore"],
             [configuration: "implementation", dependency: "$appCompat"],
+            [configuration: "implementation", dependency: "$koinCore"],
+            [configuration: "implementation", dependency: "$koinAndroid"],
             [configuration: "implementation", dependency: "$viewModel"],
             [configuration: "implementation", dependency: "$viewModelRuntime"],
+            [configuration: "implementation", dependency: "$lifecycle"],
             [configuration: "implementation", dependency: "$lifecycleXt"],
             [configuration: "implementation", dependency: "$liveData"],
     ]
 
     domainDependencies = commonsDependencies + [
-            [configuration: "implementation", dependency: "$gson"]
+            [configuration: "implementation", dependency: "$gson"],
+            [configuration: "implementation", dependency: "$koinAndroid"],
+            [configuration: "implementation", dependency: "$koinCore"]
     ]
 
     dataDependencies = commonsDependencies

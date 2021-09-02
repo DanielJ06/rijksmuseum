@@ -31,6 +31,9 @@ ext {
     httpInterceptorVersion        = "4.9.1"
     okhttpVersion                 = "4.9.1"
 
+    // paging
+    pagingVersion                 = "3.0.1"
+
     //gson
     gsonVersion                   = "2.8.5"
 
@@ -43,6 +46,9 @@ ext {
     //kotlin
     kotlin               = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     coroutine            = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
+
+    // paging
+    paging               = "androidx.paging:paging-runtime:$pagingVersion"
 
     //androidx
     appCompat            = "androidx.appcompat:appcompat:$appCompatVersion"

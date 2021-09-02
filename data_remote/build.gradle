@@ -42,5 +42,8 @@ android {
 }
 
 dependencies {
+
+    implementation project(":data")
+    implementation project(":domain")
     dataRemoteDependencies.each {add(it.configuration, it.dependency) }
 }

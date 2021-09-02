@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -33,6 +34,7 @@ android {
 
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 
     buildTypes {
@@ -60,6 +62,8 @@ android {
 dependencies {
 
     implementation project(path: ':base_feature')
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation project(path: ':domain')
+    implementation project(path: ':presentation')
+    implementation project(path: ':di')
     appDependencies.each { add(it.configuration, it.dependency) }
 }
