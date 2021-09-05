@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.base_feature.core.BaseFragment
@@ -15,6 +16,8 @@ import com.example.presentation.viewModels.PaintViewModel
 import com.example.presentation.viewModels.base.ViewState
 import com.example.rijksmuseum.databinding.FragmentHomeBinding
 import com.example.rijksmuseum.ui.adapters.PaintItemAdapter
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment() {
@@ -34,36 +37,21 @@ class HomeFragment : BaseFragment() {
         mViewModel.loadPaints()
 
         binding.paintingsRv.adapter = mAdapter
-        binding.paintingsRv.layoutManager = LinearLayoutManager(
+        val linearLayout = LinearLayoutManager(
             requireContext(), LinearLayoutManager.VERTICAL, false
         )
+        binding.paintingsRv.layoutManager = linearLayout
 
-        binding.paintingsRv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-                if (!recyclerView.canScrollVertically(1)) {
-                    mViewModel.loadPaints()
-                }
-            }
-        })
+        initViewModel()
     }
 
-    override fun addObservers(owner: LifecycleOwner) {
-        mViewModel.paintsViewState.observe(owner, { res ->
-            when (res) {
-                is ViewState.Success -> {
-                    res.data?.let {
-                        mAdapter.setData(it)
-                    }
-                }
-                is ViewState.Error -> {
-                    Log.i("DEBUG", res.message.toString())
-                }
-                else -> {
-                    Log.i("DEBUG", res.message.toString())
-                }
+    private fun initViewModel() {
+        lifecycleScope.launch {
+            mViewModel.loadPaints().collectLatest {
+                Log.i("DEBUG", it.toString())
+                mAdapter.submitData(it)
             }
-        })
+        }
     }
 
 }

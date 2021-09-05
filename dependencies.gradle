@@ -46,15 +46,19 @@ ext {
             [configuration: "implementation", dependency: "$lifecycle"],
             [configuration: "implementation", dependency: "$lifecycleXt"],
             [configuration: "implementation", dependency: "$liveData"],
+            [configuration: "implementation", dependency: "$paging"]
     ]
 
     domainDependencies = commonsDependencies + [
             [configuration: "implementation", dependency: "$gson"],
             [configuration: "implementation", dependency: "$koinAndroid"],
-            [configuration: "implementation", dependency: "$koinCore"]
+            [configuration: "implementation", dependency: "$koinCore"],
+            [configuration: "implementation", dependency: "$paging"]
     ]
 
-    dataDependencies = commonsDependencies
+    dataDependencies = commonsDependencies + [
+            [configuration: "implementation", dependency: "$paging"]
+    ]
 
     dataLocalDependencies = dataDependencies + [
             [configuration: "implementation", dependency: "$gson"],

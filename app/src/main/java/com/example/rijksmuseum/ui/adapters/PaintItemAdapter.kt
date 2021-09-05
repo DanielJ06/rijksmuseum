@@ -4,17 +4,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.models.PaintProps
 import com.example.rijksmuseum.R
 
-class PaintItemAdapter: RecyclerView.Adapter<PaintItemAdapter.PaintViewHolder>() {
+class PaintItemAdapter : PagingDataAdapter<PaintProps, PaintItemAdapter.PaintViewHolder>(
+    UIMODEL_COMPARATOR
+) {
 
     private var paints = emptyList<PaintProps>()
 
     class PaintViewHolder(
         view: View
-    ): RecyclerView.ViewHolder(view) {
+    ) : RecyclerView.ViewHolder(view) {
 
         private val title: TextView = view.findViewById(R.id.paint_title)
 
@@ -37,9 +41,14 @@ class PaintItemAdapter: RecyclerView.Adapter<PaintItemAdapter.PaintViewHolder>()
 
     override fun getItemCount(): Int = paints.size
 
-    fun setData(data: List<PaintProps>) {
-        paints = data
-        notifyDataSetChanged()
+    companion object {
+        val UIMODEL_COMPARATOR = object : DiffUtil.ItemCallback<PaintProps>() {
+            override fun areContentsTheSame(oldItem: PaintProps, newItem: PaintProps): Boolean =
+                oldItem == newItem
+
+            override fun areItemsTheSame(oldItem: PaintProps, newItem: PaintProps): Boolean =
+                oldItem.title == newItem.title
+        }
     }
 
 }
