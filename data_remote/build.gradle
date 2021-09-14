@@ -22,7 +22,6 @@ android {
 
     buildTypes {
         debug {
-            minifyEnabled true
             buildConfigField "String", "BASE_URL", envProperties.getProperty('BASE_URL')
             buildConfigField "String", "API_KEY", envProperties.getProperty('API_KEY')
         }
