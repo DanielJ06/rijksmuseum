@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.collect
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-abstract class UseCase<T, in Params>(private val scope: CoroutineScope): KoinComponent {
+abstract class UseCase<T, in Params>(val scope: CoroutineScope): KoinComponent {
     private val contextProvider: ThreadContextProvider by inject()
 
     abstract suspend fun run(params: Params? = null): Flow<T>

@@ -1,27 +1,31 @@
 package com.example.presentation.viewModels
 
 import android.util.Log
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.MutableLiveData
 import androidx.paging.PagingData
 import com.example.domain.models.PaintProps
 import com.example.domain.repository.PaintRepository
+import com.example.domain.useCases.paints.GetPaints
 import com.example.presentation.viewModels.base.BaseViewModel
+import com.example.presentation.viewModels.base.ViewState
+import com.example.presentation.viewModels.base.extensions.useCase
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
-class PaintViewModel(
-    private val paintRepository: PaintRepository
-) : BaseViewModel() {
+class PaintViewModel() : BaseViewModel() {
 
-    fun loadPaints(): Flow<PagingData<PaintProps>> {
-        val data = paintRepository.getPaintsStream()
-        viewModelScope.launch {
-            data.collect {
-                Log.i("TEST", it.toString())
+    private val getPaints: GetPaints by useCase()
+
+    val paintsViewState: MutableLiveData<ViewState<PagingData<PaintProps>>> = MutableLiveData()
+
+    fun loadPaints() {
+        getPaints(
+            onSuccess = {
+                paintsViewState.value = ViewState.Success(it)
+            },
+            onError = {
+                Log.i("DEBUG", it.toString())
+                paintsViewState.value = ViewState.Error("Something went wrong")
             }
-        }
-        return data
+        )
     }
 }
