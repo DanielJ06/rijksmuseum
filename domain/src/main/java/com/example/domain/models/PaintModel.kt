@@ -1,19 +1,17 @@
 package com.example.domain.models
 
-data class WebImage (
-    val url: String
-)
-
 data class PaintProps(
     val id: String,
 
+    val objNumber: String,
+
     val title: String,
 
-    val hasImage: String,
+    val hasImage: Boolean,
 
     val author: String,
 
     val longTitle: String,
 
-    val image: WebImage
+    val image: String?
 )

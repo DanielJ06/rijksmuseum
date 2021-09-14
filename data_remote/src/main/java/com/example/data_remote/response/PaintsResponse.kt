@@ -4,18 +4,21 @@ import com.google.gson.annotations.SerializedName
 
 data class WebImageResponse (
     @SerializedName("url")
-    val url: String
+    val url: String?
 )
 
 data class PaintPropsResponse(
     @SerializedName("id")
     val id: String,
 
+    @SerializedName("objectNumber")
+    val objNumber: String,
+
     @SerializedName("title")
     val title: String,
 
     @SerializedName("hasImage")
-    val hasImage: String,
+    val hasImage: Boolean,
 
     @SerializedName("principalOrFirstMaker")
     val author: String,
