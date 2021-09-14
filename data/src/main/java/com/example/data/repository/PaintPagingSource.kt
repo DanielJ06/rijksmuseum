@@ -21,25 +21,25 @@ class PaintPagingSource(
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PaintProps> {
-        var position = params.key ?: PAINT_PAGE_INDEX
+        val position = params.key ?: PAINT_PAGE_INDEX
 
         return try {
             val paints = paintDataSource.getPaints(position)
-            val nextKey = if (paints.isEmpty()) {
-                null
-            } else {
-                position++
+            paints.let {
+                val nextKey = if (it.isEmpty()) {
+                    null
+                } else {
+                    position + 1
+                }
+                LoadResult.Page(
+                    data = it,
+                    prevKey = if (position == PAINT_PAGE_INDEX) null else position - 1,
+                    nextKey = nextKey
+                )
+
             }
-            Log.i("Pixel", paints.toString())
-            Log.i("Pixel", position.toString())
-            LoadResult.Page(
-                data = paints,
-                prevKey = if (position == PAINT_PAGE_INDEX) null else position - 1,
-                nextKey = nextKey
-            )
         } catch (e: Exception) {
-            Log.i("Pixel", e.toString())
-            return LoadResult.Error(e)
+            LoadResult.Error(e)
         }
     }
 
