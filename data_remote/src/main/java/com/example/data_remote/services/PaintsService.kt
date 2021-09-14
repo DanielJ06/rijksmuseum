@@ -8,7 +8,7 @@ interface PaintsService {
 
     @GET("collection?imgonly")
     suspend fun loadPaints(
-        @Query("page") page: Int
+        @Query("p") page: Int
     ): PaintResponse
 
 }
