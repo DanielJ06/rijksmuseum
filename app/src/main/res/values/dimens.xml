@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="painting_title">32sp</dimen>
+    <dimen name="painting_title">21sp</dimen>
     <dimen name="painting_desc">21sp</dimen>
 
 </resources>
