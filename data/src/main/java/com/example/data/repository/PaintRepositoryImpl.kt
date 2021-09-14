@@ -23,7 +23,7 @@ class PaintRepositoryImpl(
     }
 
     companion object {
-        private const val NETWORK_PAGE_SIZE = 15
+        private const val NETWORK_PAGE_SIZE = 10
     }
 
 }
