@@ -31,17 +31,29 @@ ext {
     httpInterceptorVersion        = "4.9.1"
     okhttpVersion                 = "4.9.1"
 
+    // glide
+    glideVersion                  = "4.12.0"
+
     // paging
     pagingVersion                 = "3.0.1"
 
-    //gson
+    // gson
     gsonVersion                   = "2.8.5"
+
+    // lottie
+    lottieVersion                 = "4.1.0"
+
+    // roundedImageView
+    circleImgVersion              = "2.3.0"
 
     materialVersion               = "1.2.1"
 }
 
 ext {
     //libs
+
+    // lottie
+    lottie               = "com.airbnb.android:lottie:$lottieVersion"
 
     //kotlin
     kotlin               = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
@@ -81,4 +93,10 @@ ext {
 
     //material icons
     material             = "com.google.android.material:material:$materialVersion"
+
+    // roundedImageView
+    circleImg           = "com.makeramen:roundedimageview:$circleImgVersion"
+
+    // glide
+    glide                = "com.github.bumptech.glide:glide:$glideVersion"
 }
