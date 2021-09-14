@@ -12,7 +12,6 @@ class PaintDataSourceImpl(
 
     override suspend fun getPaints(page: Int): List<PaintProps> {
         val data = paintsService.loadPaints(page)
-        Log.i("PIXELLL", data.toString())
         return data.toDomain()
     }
 }
